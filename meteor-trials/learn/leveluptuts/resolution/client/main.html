@@ -1,0 +1,25 @@
+<head>
+  <title>resolution</title>
+</head>
+
+<body>
+  <ul>
+    {{#each resolutions}}
+      {{> resolution}}
+    {{/each}}
+  </ul>
+  
+  {{> resolution2}}
+</body>
+
+<template name="resolution">
+  <li>{{title}}</li>
+</template>
+
+<template name="resolution2">
+  <ul>
+    {{#each resolutions}}
+      <li>{{title}}</li>
+    {{/each}}    
+  </ul>
+</template>

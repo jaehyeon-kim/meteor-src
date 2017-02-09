@@ -1,0 +1,28 @@
+<head>
+  <title>meteor-poc</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h2>Old Faithful Geyser Data</h2>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="well">
+                    {{> sliderTemplate}}
+                </div>
+            </div>
+            <div class="col-sm-8">
+                {{> chartTemplate}}
+            </div>
+        </div>
+    </div>
+</body>
+
+<template name="sliderTemplate">
+    <p>Number of bins:{{slider}}</p>
+    <div id="slider"></div>
+</template>
+
+<template name="chartTemplate">
+    <canvas id="myChart" width="300" height="300"></canvas>
+</template>

@@ -1,0 +1,42 @@
+<head>
+    <title>Todos</title>
+</head>
+
+<body>
+    {{> todos}}
+</body>
+
+<template name="todos">
+    {{> addTodo}}
+    <ul>
+        {{#each todo}}
+            {{> todoItem}}
+        {{/each}}
+    </ul>
+    {{> countTodos}}
+</template>
+
+<!-- 
+better to split UI into pieces so that only the necessary piece can be refreshed
+any data avaialble in todos is also available in todoItem
+ -->
+<template name="todoItem">
+    <li class="{{checked}}">
+        <input type="checkbox" class="todoItem-checkbox" {{checked}}>
+        <input type="text" value="{{name}}" class="todoItem-input">
+        [<a href="#" class="todoItem-delete">Delete</a>]
+    </li>
+</template>
+
+<template name="addTodo">
+    <form>
+        Create a task:
+        <input type="text" placeholder="Type a task here..." class="addTodo-input">
+    </form>
+</template>
+
+<template name="countTodos">
+    {{#if totalTodos}}
+        <p>You have completed {{completedTodos}} out of {{totalTodos}} tasks.</p>
+    {{/if}}
+</template>

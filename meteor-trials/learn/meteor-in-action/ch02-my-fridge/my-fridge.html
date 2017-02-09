@@ -1,0 +1,70 @@
+<head>
+  <title>My Fridge</title>
+</head>
+
+<body>
+  {{> container}}
+</body>
+
+<template name="container">
+  <div class="container">
+    <div class="left">
+      {{> fridge}}
+    </div>
+    <div class="right">
+      {{> productList}}
+    </div>
+  </div>
+</template>
+
+<template name="fridge">
+  <div id="fridge">
+    <img class="image-responsive" src="/empty-fridge.jpg" />
+    <ul>
+      {{#each products}}
+      <li>{{> productListItem}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="productList">
+  <div id="supermarket">
+    <ul id="products">
+      {{#each products}}
+      <li>{{> productListItem}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="productListItem">
+  <img src="{{img}}" data-id="{{_id}}" class="image-responsive product-image draggable" />
+</template>
+
+<!-- <head>
+  <title>my-fridge</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
+  {{> info}}
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="info">
+  <h2>Learn Meteor!</h2>
+  <ul>
+    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
+    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
+    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
+    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
+  </ul>
+</template>
+ -->

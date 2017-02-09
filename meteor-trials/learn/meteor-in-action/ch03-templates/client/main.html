@@ -1,0 +1,42 @@
+<head>
+  <title>ch03-templates</title>
+</head>
+
+<body>
+  {{> expressions}}
+  {{> partialSplit}}
+  {{> dynamicPartials}}
+</body>
+
+<template name="expressions">
+  <h3>Double curly braces</h3>
+  {{name}}
+  <h3>Triple curly braces</h3>
+  {{{name}}}
+</template>
+
+<template name="partialSplit">
+  <h3>partialSplit template</h3>
+  <div class="left">
+    {{> partialUserProfile}}
+  </div>
+  <div class="right">
+    {{> partialNewsStream}}
+  </div>
+</template>
+
+<template name="partialUserProfile">
+  <img src="{{image}}">
+  <p>{{name}}</p>
+</template>
+
+<template name="partialNewsStream">
+  <ul class="news-stream">
+    <li class="news-item">Yesterday I want fishing, boy this was a blast</li>
+    <li class="news-item">Look, cookies! <img src="cookies.jpg"></li>
+  </ul>
+</template>
+
+<template name="dynamicPartials">
+  
+</template>

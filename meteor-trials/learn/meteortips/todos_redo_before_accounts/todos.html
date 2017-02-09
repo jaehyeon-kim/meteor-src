@@ -1,0 +1,100 @@
+<head>
+  <title>Todo Application</title>
+</head>
+
+<body>
+</body>
+
+<!-- individual todo items -->
+<template name="todos">
+  {{> addTodo}}
+  <ul>
+      {{#each todo}}
+        {{> todoItem}}
+      {{/each}}
+  </ul>
+  {{> countTodos}}
+</template>
+
+<!-- 
+better to split UI into pieces so that only the necessary piece can be refreshed
+any data avaialble in todos is also available in todoItem
+ -->
+<template name="todoItem">
+    <li class="{{checked}}">
+        <input type="checkbox" class="todoItem-checkbox" {{checked}}>
+        <input type="text" value="{{name}}" class="todoItem-input">
+        [<a href="#" class="todoItem-delete">Delete</a>]
+    </li>
+</template>
+
+<template name="addTodo">
+    <form>
+        Create a task:
+        <input type="text" placeholder="Type a task here..." class="addTodo-input">
+    </form>
+</template>
+
+<template name="countTodos">
+    {{#if totalTodos}}
+        <p>You've completed {{completedTodos}} out of {{totalTodos}} tasks.</p>
+    {{/if}}
+</template>
+
+<!-- lists of todo items -->
+<template name="lists">
+    <h2>Lists</h2>
+    {{> addList}}
+    <ul>
+        {{#each list}}
+            <li>
+                <a href="{{pathFor route='listPage'}}">{{name}}</a>
+                [<a href="#" class="lists-delete">Delete</a>]
+            </li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="addList">
+    <form>
+        Create a list:
+        <input type="text" placeholder="Type a list here..." class="addList-input">
+    </form>
+</template>
+
+<template name="listPage">
+    <h2>Tasks: {{name}}</h2>
+    {{> todos}}
+</template>
+
+<!-- routing -->
+<template name="main">
+    <h1>Todos</h1>
+    {{> navigation}}
+    {{> lists}}
+    <!--'yield' allows a routed template (register, login) to be shown-->
+    {{> yield}}
+    <hr>
+    <p>Copyright &copy; Todos, 2014-{{currentYear}}.</p>
+</template>
+
+<template name="home">
+    <p>Welcome to the Todos application.</p>
+</template>
+
+<template name="register">
+    <h2>Register</h2>
+</template>
+
+<template name="login">
+    <h2>Login</h2>
+</template>
+
+<template name="navigation">
+    <ul>
+        <li><a href="{{pathFor route='home'}}">Home</a></li>
+        <li><a href="{{pathFor route='register'}}">Register</a></li>
+        <li><a href="{{pathFor route='login'}}">Login</a></li>
+    </ul>
+</template>
+

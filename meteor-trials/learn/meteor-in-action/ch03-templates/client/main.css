@@ -1,0 +1,17 @@
+/* CSS declarations go here */
+.container {
+  width: 95%;
+  position: relative;
+}
+.left {
+  float: left;
+  width: 60%;
+  margin-right: 2%;
+}
+.right {
+  float: right;
+  width: 37%;
+}
+.title {
+  font-weight: bold;
+}
